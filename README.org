@@ -1,0 +1,42 @@
+#+title: Edit Indirect Heredoc
+#+author: Alejandro Gallo
+
+* Introduction
+
+This package implements a minor mode for editing =HEREDOCS= in a
+separate buffer similar to =org-mode='s =C-c '= functionality.
+
+For this, it simply uses the package [[https://github.com/Fanael/edit-indirect][edit-indirect]].
+
+* Example
+
+The name of the =HEREDOC= document will be the name of the mode
+activated in the editing buffer, i.e., having
+
+#+begin_src bash
+dhall <<DHALL_MODE
+let a = 2
+
+let b = 2
+
+in
+
+{ a, b }
+DHALL_MODE
+#+end_src
+
+if you do =C-c '= in the dhall text, it will open a =dhall-mode= buffer.
+
+* Installation
+
+Right now the package is not on elpa, but you can load it from source,
+the only dependency is =edit-indirect=.
+
+You can turn on the minor mode using hooks, i.e.
+
+#+begin_src emacs-lisp
+(let ((heredoc-hooks '(sh-mode-hook
+                       gnuplot-mode-hook)))
+  (dolist (mode heredoc-hooks)
+    (add-hook mode #'edit-indirect-heredoc-mode)))
+#+end_src
