@@ -4,7 +4,7 @@
 * Introduction
 
 This package implements a minor mode for editing =HEREDOCS= in a
-separate buffer similar to =org-mode='s ~C-c '~ functionality.
+separate buffer similar to =org-mode='s C-c ' functionality.
 
 For this, it simply uses the package [[https://github.com/Fanael/edit-indirect][edit-indirect]].
 
@@ -25,7 +25,7 @@ in
 DHALL_MODE
 #+end_src
 
-if you do =C-c \'= in the dhall text, it will open a =dhall-mode= buffer.
+if you press C-c ' in the dhall text, it will open a =dhall-mode= buffer.
 
 * Installation
 
